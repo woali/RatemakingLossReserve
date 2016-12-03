@@ -30,14 +30,14 @@ options(digits=2)
 #Example - the estimation of $(\lambda, \alpha)'$ in Gamma distribution
 y.gam <- rgamma(100, 2)
 
-1st method:
+#1st method:
 
 l.gamma <- function(y,par) {n<-length(y)
 -n*par[2]*log(par[1])+n*log(gamma(par[2]))-(par[2]-1)*sum(log(y))+par[1]*sum(y)} # -log-likelihood function			
 result <- optim( par = c(1,2), l.gamma, y = y.gam, method = "Nelder-Mead")
 result
 
-2nd method:
+#2nd method:
 
 library(stats4) 
 l.gamma<-function(lambda,alfa) {y<-y.gam
@@ -46,7 +46,7 @@ n<-length(y)
 est<-mle(minuslog=l.gamma, start=list(lambda=1,alfa=2))
 summary(est)
 
-3rd method:
+#3rd method:
 
 library(MASS) 
 fitdistr(y.gam,"gamma", method = "Nelder-Mead") # fitting gamma pdf parameters

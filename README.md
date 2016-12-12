@@ -1,5 +1,4 @@
 # Ratemaking and Loss reserving
 
-Tu można coś wpisać
-
-Albo dodać jakiś fajny wykres
+The repository contains the R code dedicated to the book
+## Selected Statistical Models in Non-life insurance with R

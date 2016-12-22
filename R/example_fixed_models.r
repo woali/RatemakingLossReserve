@@ -64,10 +64,6 @@ summary(glm.ig)
 mean.group <-tapply(claimcst0[dataCar$claimcst0>0], as.factor(veh_age[dataCar$claimcst0>0]), mean)
 data.frame("mean"=mean.group, "fitted values"=unique(glm.ig$fitted.values))
 
-plotdata <- expand.grid(gender=c("F","M"), agecat=factor(1:6), veh_age=factor(1:4), exposure=1, area=c("A"))
-plotdata$freq_hat <- predict(zip1, plotdata, type=c("response"))
-plotdata[1:10,]
-
 plot(glm.ig, which=1:4)
 
 ##Example - density of Tweedie distribution 

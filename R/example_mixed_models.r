@@ -101,7 +101,7 @@ n.iter=0
 for (i in 1:n.iter.max){
 ### E-Step
 t = pseudo_values(variable, mixing=c("lognorm"), 
-lambda=lambda.old, nu=nu.old, n=100)
+lambda=lambda.old[1], nu=nu.old, n=100)
 
 ### M-Step
 lam <-lambda_m_step(variable, X, t$pseudo_values)
@@ -115,7 +115,7 @@ nu1=c(nu1,nu.new)
 beta1=c(beta1,lam$beta)
 }
 
-tab <-rbind(lambda1, beta1, nu1)
+tab <-rbind(lambda.new[1], beta1, nu1)
 rownames(tab)=c("lambda", "beta_0", "nu")
 colnames(tab)=NULL
 tab
